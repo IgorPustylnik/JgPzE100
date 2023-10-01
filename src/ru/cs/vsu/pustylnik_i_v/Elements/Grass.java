@@ -6,7 +6,7 @@ public class Grass {
     private int x;
     private final int y;
     private final int angle;
-    private Color c;
+    private final Color c;
 
     public Grass(int x, int y, int angle, Color c) {
         this.x = x;

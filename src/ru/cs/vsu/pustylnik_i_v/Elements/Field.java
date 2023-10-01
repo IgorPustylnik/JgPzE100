@@ -4,11 +4,11 @@ import java.awt.*;
 import java.util.Random;
 
 public class Field {
-    int[][][] randomXYoffset;
-    Grass[][] trava;
+    private final int[][][] randomXYoffset;
+    private final Grass[][] trava;
     private final int x;
     private final int y;
-    private Color c;
+    private final Color c;
 
     public Field(int x, int y, Color c) {
         this.x = x;

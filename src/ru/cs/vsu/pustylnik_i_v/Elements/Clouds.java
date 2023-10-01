@@ -6,8 +6,8 @@ import java.util.Random;
 
 public class Clouds {
     private int x;
-    private int y;
-    private ArrayList<Cloud> cloudList;
+    private final int y;
+    private final ArrayList<Cloud> cloudList;
 
     public Clouds(int x, int y) {
         this.x = x;
@@ -49,9 +49,9 @@ public class Clouds {
         }
     }
 
-    static class Cloud {
+    private static class Cloud {
         private int x;
-        private int y;
+        private final int y;
         private final int width;
         private final int height;
 

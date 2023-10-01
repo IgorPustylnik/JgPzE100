@@ -6,7 +6,7 @@ import java.util.ArrayList;
 public class Tanks {
     private int x;
     private final int y;
-    private ArrayList<Tank> tankList;
+    private final ArrayList<Tank> tankList;
 
     public Tanks(int x, int y) {
         this.x = x;

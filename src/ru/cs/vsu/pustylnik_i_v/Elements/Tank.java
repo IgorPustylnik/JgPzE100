@@ -19,7 +19,7 @@ public class Tank {
         towerType = r.nextInt(2);
         gunType = r.nextInt(2);
         bodyType = r.nextInt(2);
-        color = new Color(88, 88, 80 + r.nextInt(60));
+        color = new Color(88, 80 + r.nextInt(20), 70 + r.nextInt(30));
     }
 
     public void setX(int x) {

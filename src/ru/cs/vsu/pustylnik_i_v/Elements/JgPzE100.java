@@ -8,7 +8,9 @@ public class JgPzE100 {
     private Polygon body;
     private Polygon behindWheels;
     private final Wheel[] wheels = new Wheel[10];
-    private int x, y;
+    private final int x;
+    private int y;
+    private final int baseY;
     private final Color base = new Color(87, 87, 87);
     private final Color wheelColor = new Color(61, 61, 61);
     private final Color wheelDarkColor = new Color(47, 47, 47);
@@ -16,6 +18,7 @@ public class JgPzE100 {
     public JgPzE100(int x, int y) {
         this.x = x;
         this.y = y;
+        this.baseY = y;
         wheels[0] = new Wheel(x + 35, y + 177, 5, 17, 11, wheelDarkColor);
         wheels[1] = new Wheel(x + 110, y + 177, 5, 23, 11, wheelDarkColor);
         wheels[2] = new Wheel(x + 190, y + 177, 5, 23, 11, wheelDarkColor);
@@ -30,10 +33,6 @@ public class JgPzE100 {
         gunBase = new Polygon(new int[]{x + 190, x + 280, x + 290, x + 290}, new int[]{y, y + 100, y + 57, y + 43}, 4);
         body = new Polygon(new int[]{x, x + 20, x + 370, x + 400, x + 350}, new int[]{y + 100, y + 160, y + 160, y + 135, y + 100}, 5);
         behindWheels = new Polygon(new int[]{x + 20, x + 10, x + 40, x + 350, x + 410, x + 380}, new int[]{y + 160, y + 180, y + 205, y + 205, y + 160, y + 140}, 6);
-    }
-
-    public void setX(int x) {
-        this.x = x;
     }
 
     public void draw(Graphics2D g) {
@@ -76,7 +75,7 @@ public class JgPzE100 {
 
         g.setFont(new Font("Comic Sans MS", Font.PLAIN, 20));
         g.setColor(Color.BLACK);
-        g.drawString("Zerstörungskraft", x + 50, y + 50);
+        g.drawString("Zerstörungskraft", x + 30, y + 55);
     }
 
     public void updateCoordinates() {
@@ -126,16 +125,15 @@ public class JgPzE100 {
         double frequency = 0.02;
         double amplitude = 20.0;
 
-        double newY = 350 + amplitude * Math.sin(frequency * step);
+        double newY = baseY + amplitude * Math.sin(frequency * step);
 
-        if (newY >= 330 && newY <= 370) {
+        if (newY >= baseY - 20 && newY <= baseY + 20) {
             y = (int) newY;
         }
         updateCoordinates();
     }
 
-
-    public static class Wheel {
+    private static class Wheel {
         private final int x;
         private int y;
         private final int r;
@@ -153,11 +151,11 @@ public class JgPzE100 {
             this.c = c;
         }
 
-        public void setY(int y) {
+        private void setY(int y) {
             this.y = y;
         }
 
-        public void rotate(int angle) {
+        private void rotate(int angle) {
             this.rotation = angle;
         }
 
