@@ -17,7 +17,7 @@ public class DrawingPanel extends JFrame implements ActionListener {
     private int ticksFromStart = 0;
     private final Sky sky = new Sky(0, 0, PICTURE_WIDTH,  PICTURE_HEIGHT / 2);
     private final Clouds clouds = new Clouds(100, 100);
-    private final Field field = new Field(0, PICTURE_HEIGHT - 10, new Color(38, 148, 29));
+    private final Field field = new Field(0, 340, new Color(38, 148, 29));
     private final JgPzE100 jg = new JgPzE100(300, 350);
     private final Tanks tankList = new Tanks(30, 400);
 
